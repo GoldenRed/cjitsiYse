@@ -3,5 +3,5 @@ This repo contains the terraform script I use to run my own chat-server using th
 
 Note that only the main.tf file and this README have been whitelisted. The other file contain sensitive information about my running applicaton. 
 
-[x] - Replace my previous manual setup with a 
-[ ] - Add a part for Global Accelerator that I can comment/uncomment, for when I want the best internet speeds.
+- [x] - Replace my previous manual setup with a 
+- [ ] - Add a part for Global Accelerator that I can comment/uncomment, for when I want the best internet speeds.
