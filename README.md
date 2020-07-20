@@ -1,2 +1,2 @@
 # cjitsiYse
-Terraform scripts for mt jitsi-application.
+Terraform scripts for my jitsi-application.
