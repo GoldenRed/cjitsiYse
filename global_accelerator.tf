@@ -33,4 +33,5 @@ output "global_accelerator_ip" {
   value = aws_globalaccelerator_accelerator.cjitsiYse_global_accelerator.ip_sets
 }
 
+
 */

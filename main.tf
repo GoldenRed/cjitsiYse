@@ -2,12 +2,43 @@ provider "aws" {
   region = var.region
 }
 
+data "aws_ami" "amazon_linux2" {
+ most_recent = true
+ owners = ["amazon"]
+
+ filter {
+   name   = "owner-alias"
+   values = ["amazon"]
+ }
+
+ filter {
+   name   = "name"
+   values = ["amzn2-ami-hvm-2.0*-x86_64-gp2"]
+ }
+
+ filter {
+   name   = "architecture"
+   values = ["x86_64"]
+ }
+ 
+}
+
+/*
+data "template_file" "installscript" {
+template = file("./install.sh")
+vars = {
+  env_file_url = var.environment_file_url
+  }
+}
+*/
+
 ## EC2 Instance
 resource "aws_instance" "cjitsiYse_instance" {
-  ami           = var.image_id
+  ami           = data.aws_ami.amazon_linux2.id
   instance_type = var.instance_type
   key_name = var.key_pair
   security_groups = [aws_security_group.cjitsiYse_sg.name]
+#  user_data = data.template_file.installscript
 
   tags = {
     Name = join("_", [var.base_prefix, "instance"])
